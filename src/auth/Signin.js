@@ -5,6 +5,7 @@ import axios from 'axios';
 import { authenticate, isAuth } from './helpers';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import Google from './Google';
 
 require('dotenv').config();
 
@@ -51,6 +52,7 @@ const SignIn = ({ history }) => {
     const signInForm = () => (
         <form>
             <div className="form-group">
+                <Google/>
                 <label className="text-muted">Email</label>
                 <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
             </div>
