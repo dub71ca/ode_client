@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import axios from 'axios';
 
-const Google = () => {
+const Google = ({informParent = f => f}) => {    // find out what this is doing f => f ?????????
     const responseGoogle = (response) => {
         console.log(response.tokenId);
         axios({
@@ -13,6 +13,7 @@ const Google = () => {
         .then(response => {
             console.log("GOOGLE_SIGNIN_SUCCESS", response);
             // inform parent component
+            informParent(response);
         })
         .catch(error => {
             console.log("GOOGLE_SIGNIN_ERROR", error.response);

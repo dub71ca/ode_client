@@ -6,6 +6,7 @@ import { authenticate, isAuth } from './helpers';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Google from './Google';
+import Facebook from './Facebook';
 
 require('dotenv').config();
 
@@ -22,6 +23,13 @@ const SignIn = ({ history }) => {
     const handleChange = (name) => (event) => {
         setValues({...values, [name]: event.target.value})
     }
+
+    const informParent = response => {
+        authenticate(response, () => {
+            isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/private');
+        })
+    }
+
     const clickSubmit = (event) => {
         event.preventDefault();
         setValues({...values, buttonText: 'Submitting'});
@@ -38,7 +46,6 @@ const SignIn = ({ history }) => {
                 setValues({...values, name: '', email: '', password: '', buttonText: 'Submitted'})
                 //toast.success(`Hello, ${response.data.user.name}, Welcome back!`);
                 isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/private');
-    
             })
         })
         .catch(error => {
@@ -52,7 +59,8 @@ const SignIn = ({ history }) => {
     const signInForm = () => (
         <form>
             <div className="form-group">
-                <Google/>
+                <Google informParent={informParent}/>
+                <Facebook informParent={informParent}/>
                 <label className="text-muted">Email</label>
                 <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
             </div>
