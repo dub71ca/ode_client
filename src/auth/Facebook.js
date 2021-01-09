@@ -24,7 +24,7 @@ const Facebook = ({informParent = f => f}) => {    // find out what this is doin
         <div className="pb-3">
             <FacebookLogin
                 appId={`${process.env.REACT_APP_FACEBOOK_APP_ID}`}
-                autoLoad={true}
+                autoLoad={false}
                 callback={responseFacebook}
                 render={renderProps => (
                     <button 
