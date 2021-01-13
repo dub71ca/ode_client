@@ -65,7 +65,7 @@ const SignUp = () => {
 
     return (
         <Layout>
-            <div className="col-md-6 offset-md-3">
+            <div className="col-d6 offset-md-3">
                 <ToastContainer />
                 {isAuth() && <Redirect to="/" />}
                 <h1 className="p-5 text-center">SignUp</h1>
