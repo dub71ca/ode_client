@@ -80,8 +80,6 @@ const SignIn = ({ history }) => {
                 <h1 className="p-5 text-center">Signin</h1>
                 {/* <Google informParent={informParent} />
                 <Facebook informParent={informParent} /> */}
-                <Google />
-                <Facebook />
                 {signInForm()}
                 <br />
                 <Link to="/auth/password/forgot" className="btn btn-sm btn-outline-danger">
