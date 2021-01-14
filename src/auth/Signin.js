@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Layout from '../core/Layout';
 import axios from 'axios';
 import { authenticate, isAuth } from './helpers';
@@ -59,8 +59,6 @@ const SignIn = ({ history }) => {
     const signInForm = () => (
         <form>
             <div className="form-group">
-                <Google informParent={informParent}/>
-                <Facebook informParent={informParent}/>
                 <label className="text-muted">Email</label>
                 <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
             </div>
@@ -76,11 +74,17 @@ const SignIn = ({ history }) => {
 
     return (
         <Layout>
-            <div className="col-d6 offset-md-3">
+            <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                {isAuth() && <Redirect to="/" />}
-                <h1 className="p-5 text-center">SignIn</h1>
+                {isAuth() ? <Redirect to="/" /> : null}
+                <h1 className="p-5 text-center">Signin</h1>
+                <Google informParent={informParent} />
+                <Facebook informParent={informParent} />
                 {signInForm()}
+                <br />
+                <Link to="/auth/password/forgot" className="btn btn-sm btn-outline-danger">
+                    Forgot Password
+                </Link>
             </div>
         </Layout>
     )

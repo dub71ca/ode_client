@@ -42,7 +42,7 @@ export const isAuth = () => {
     if(window !== 'undefined') {
         const cookieChecked = getCookie('token');
         if(cookieChecked) {
-            if(localStorage.getItem('user')) {
+            if((localStorage.getItem('user')) && (localStorage.getItem('user') !== 'undefined')) {
                 return JSON.parse(localStorage.getItem('user'));
             } else {
                 return false; 
