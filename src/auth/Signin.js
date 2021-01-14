@@ -78,6 +78,8 @@ const SignIn = ({ history }) => {
                 <ToastContainer />
                 {isAuth() ? <Redirect to="/" /> : null}
                 <h1 className="p-5 text-center">Signin</h1>
+                {/* <Google informParent={informParent} />
+                <Facebook informParent={informParent} /> */}
                 <Google informParent={informParent} />
                 <Facebook informParent={informParent} />
                 {signInForm()}
