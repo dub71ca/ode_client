@@ -61,7 +61,7 @@ const Private = ({ history }) => {
             data: {name, password},
         })
         .then( response => {
-            console.log('PRIVATE_PROFILR_UPDATE_SUCCESS', response)
+            console.log('PRIVATE_PROFILE_UPDATE_SUCCESS', response)
 
             updateUser(response, () => {
                 setValues({...values, buttonText: 'Updated'})

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { isAuth } from './helpers';
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const PublicRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={props =>
@@ -20,4 +19,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     ></Route>
 );
 
-export default PrivateRoute;
+export default PublicRoute;

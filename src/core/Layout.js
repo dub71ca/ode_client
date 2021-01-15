@@ -18,6 +18,26 @@ const Layout = ({ children, match, history }) => {
                     Home
                 </Link>
             </li>
+            <li className="nav-item">
+                <Link to="/" className="nav-link" style={isActive("/")}>
+                    Explore
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/" className="nav-link" style={isActive("/")}>
+                    Get Started
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/" className="nav-link" style={isActive("/")}>
+                    About
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/" className="nav-link" style={isActive("/")}>
+                    Pricing
+                </Link>
+            </li>
             { !isAuth() && (
                 <Fragment>
                     <li className="nav-item">

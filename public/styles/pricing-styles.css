@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  margin: 20px auto;
+}
+
+.pricingCard {
+  border: 1px solid #575c5c;
+  border-radius: 3px;
+  flex: 1;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+.pricingCard h2 {
+  margin-bottom: 0;
+}
+
+.title {
+  background: #979b9b;
+  padding: 20px 25px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 1.7em;
+}
+
+.pricingCard.featured {
+  border-color: #d6c315;
+  background: #abb8b8;
+}
+
+.pricingCard.featured .title {
+  background: #d6c315;
+  color: white;
+}
+
+.pricingCard.featured .bttn {
+  background: #d6c315;
+  color: white;
+}
+.pricingCard.featured .bttn:hover {
+  background: #dad7c3;
+}
+
+.pricingCard .price-overview {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.pricingCard.featured .btn {
+  background: blue;
+}
+
+.price .price__currency {
+  font-size: 1.7em;
+  padding-right: 3px;
+}
+
+.price .price__dollar {
+  font-size: 1.7em;
+}
+
+.price .price__cent {
+  font-size: 1em;
+}
+
+.card {
+  padding: 10px 25px 20px;
+}
+
+.price-desc {
+  font-size: 0.7em;
+  margin-top: 0;
+}
+
+.bttn {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin: 0 25px;
+  margin-top: auto;
+  background: none;
+  border: 1px solid #d6c315;
+  color: #d6c315;
+}
+.bttn:hover {
+  background: #abb8b8;
+}
+
+.toggle-container {
+  text-align: center;
+}
+
+/*# sourceMappingURL=pricing-styles.css.map */

@@ -8,6 +8,7 @@ import Private from './core/Private';
 import Admin from './core/Admin';
 import PrivateRoute from './auth/PrivateRoute';
 import AdminRoute from './auth/AdminRoute';
+import Explore from './core/Explore';
 
 const Routes = () => {
     return (
@@ -16,6 +17,7 @@ const Routes = () => {
                 <Route path = "/" exact component={App} />
                 <Route path = "/signup" component={SignUp} />
                 <Route path = "/signin" component={SignIn} />
+                <Route path = "/explore" component={Explore} />
                 <Route path = "/auth/activate/:token" component={Activate} />
                 <PrivateRoute path = "/private" component={Private} />
                 <AdminRoute path = "/admin" component={Admin} />
