@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Google = ({informParent = f => f}) => {    // find out what this is doing f => f ?????????
     const responseGoogle = (response) => {
-        console.log(response.tokenId);
+        console.log('tokenID', response.tokenId);
         axios({
             method: 'POST',
             url:`${process.env.REACT_APP_API}/google-login`,

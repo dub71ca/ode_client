@@ -21,7 +21,7 @@ const Activate = ({match}) => {
         if(token) {
             setValues({ ...values, name, token });
         }
-    }, []);
+    }, [match.params.token, values]);
 
     const { name, token } = values;
 
