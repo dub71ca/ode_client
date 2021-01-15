@@ -19,7 +19,7 @@ const Admin = ({ history }) => {
 
     useEffect(() => {
         loadProfile()
-    });
+    }, []);
 
     const loadProfile = () => {
         axios({
@@ -30,7 +30,7 @@ const Admin = ({ history }) => {
             }
         })
         .then(response => {
-            //console.log('ADMIN_PROFILE_UPDATE', response);
+            console.log('ADMIN_PROFILE_UPDATE', response);
             const {role, name, email} = response.data;
             setValues({...values, role, name, email});
         })

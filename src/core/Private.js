@@ -19,7 +19,7 @@ const Private = ({ history }) => {
 
     useEffect(() => {
         loadProfile()
-    });
+    }, []);
 
     const loadProfile = () => {
         axios({
