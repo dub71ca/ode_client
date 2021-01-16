@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+// import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 import { NavLink } from "react-router-dom";
-import NavigationBar from "./NavigationBar";
+// import NavigationBar from "./NavigationBar";
 import logo from '../Images/one-dollar-econ-V1.png';
 
 function Header() {
@@ -24,7 +24,7 @@ function Header() {
 
             <img src={logo} alt="One Dollar Economy" width="150" height="150"></img>
             
-            <NavigationBar />
+            {/* <NavigationBar />
 
 
             <div className="search-control">
@@ -47,7 +47,7 @@ function Header() {
                     Search
                 </Button>
             </Form>
-            </div>
+            </div> */}
 
         </header>
 

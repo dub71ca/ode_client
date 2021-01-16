@@ -6,16 +6,17 @@ const App = () => {
     return (
         <Layout>
             <div className="col-md-6 offset-md-3 text-center">
-                <h1 className="p-5">React Node MongoDB Authentication Boilerplate</h1>
-                <h2>MERN STACK</h2>
+                <h1 className="p-5">We can all do well!</h1>
+                <h2>One Dollar Economy</h2>
                 <hr />
                 <p className="lead">
-                    MERN stack login register system with account activation, forgot password, reset password, login
-                    with facebook and google as well as private and protected routes for authenticated user and users
-                    with the role of admin.
+                    The One Dollar Economy is a future where individually we create, currate and
+                    deliver the best solutions for just a dollar. No billion dollar companies, but
+                    instead an army of individuals creating what we need for each other and we reap
+                    the benfits. Everyone of us is passionate about something, document it and others
+                    will watch it. If you have a cell phone and a desire to share it with the wold 
+                    you can get started for just a dollar a year.
                 </p>
-                <h4 className="p2">Bonus</h4>
-                <p className="lead">Profile update & deployment to digital ocean cloud servers</p>
             </div>
         </Layout>
     );

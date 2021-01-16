@@ -1,6 +1,8 @@
 import React, {Fragment} from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAuth, signOut } from '../auth/helpers';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 const Layout = ({ children, match, history }) => {
     const isActive = path => {
@@ -19,22 +21,22 @@ const Layout = ({ children, match, history }) => {
                 </Link>
             </li>
             <li className="nav-item">
-                <Link to="/" className="nav-link" style={isActive("/")}>
+                <Link to="/explore" className="nav-link" style={isActive("/explore")}>
                     Explore
                 </Link>
             </li>
             <li className="nav-item">
-                <Link to="/" className="nav-link" style={isActive("/")}>
+                <Link to="/get-started" className="nav-link" style={isActive("/get-started")}>
                     Get Started
                 </Link>
             </li>
             <li className="nav-item">
-                <Link to="/" className="nav-link" style={isActive("/")}>
+                <Link to="/about" className="nav-link" style={isActive("/about")}>
                     About
                 </Link>
             </li>
             <li className="nav-item">
-                <Link to="/" className="nav-link" style={isActive("/")}>
+                <Link to="/pricing" className="nav-link" style={isActive("/pricing")}>
                     Pricing
                 </Link>
             </li>
@@ -88,10 +90,12 @@ const Layout = ({ children, match, history }) => {
 
     return (
         <Fragment>
+            <Header />
             { nav() }
             <div className="container">
                 {children}
             </div>
+            <Footer />
         </Fragment>
     );
 };
