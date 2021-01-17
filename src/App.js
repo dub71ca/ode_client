@@ -10,12 +10,8 @@ const App = () => {
                 <h2>One Dollar Economy</h2>
                 <hr />
                 <p className="lead">
-                    The One Dollar Economy is a future where individually we create, currate and
-                    deliver the best solutions for just a dollar. No billion dollar companies, but
-                    instead an army of individuals creating what we need for each other and we reap
-                    the benfits. Everyone of us is passionate about something, document it and others
-                    will watch it. If you have a cell phone and a desire to share it with the wold 
-                    you can get started for just a dollar a year.
+                    The One Dollar Economy is a future where individually we create, currate and deliver the best art, entertainment and content for just a dollar. 
+                    <a href="/get-started"> Get started</a> for just as little dollar per year.
                 </p>
             </div>
         </Layout>
