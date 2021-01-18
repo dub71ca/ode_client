@@ -6,6 +6,9 @@ function Contributor(props) {
         <p>{props.description}</p>
         <p>{props.link}</p>
         <p>{props.contact}</p>
+        <div onClick={props.handleEditClick}>
+            <i class="fas fa-edit"></i>
+        </div>
     </div>
 }
 
