@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Layout from './Layout';
 import Contributor from '../components/Contributor';
-import { isAuth, getCookie, signOut } from '../auth/helpers';
+import { isAuth, getCookie } from '../auth/helpers';
 import axios from 'axios';
 
 const GetStarted = ({ history }) => {
@@ -17,7 +17,17 @@ const GetStarted = ({ history }) => {
     });
 
     const token = getCookie('token');
-    const authorizedUserID = isAuth()._id;
+    let authorizedUser = isAuth();
+    
+    // if(!authorizedUser || authorizedUser === 'undefined') {
+    if(!authorizedUser) {
+        console.log('user', authorizedUser);
+        authorizedUser = {
+            _id: 'undefined'
+        }
+        history.push('/signin');
+    } 
+    
 
     const [data, setData] = useState([]);
 
@@ -26,10 +36,9 @@ const GetStarted = ({ history }) => {
     }, []);
 
     const loadContributions = () => {
-        console.log('id', authorizedUserID);
         axios({
             method: 'GET',
-            url: `${process.env.REACT_APP_API}/my-contributions/${authorizedUserID}`
+            url: `${process.env.REACT_APP_API}/my-contributions/${authorizedUser._id}`
         })
         .then(response => {
             console.log('GET_STARTED_CONTRIBUTORS_SUCCESS', response);
@@ -46,9 +55,7 @@ const GetStarted = ({ history }) => {
     
     const handleSubmit = (event) => {
 
-        setValues({...values, userID: authorizedUserID});
-
-
+        console.log('userID', authorizedUser._id);
         console.log('ActiveDisplay', ActiveDisplay);
         let crudURL = process.env.REACT_APP_API + '/add-contribution';
         let crudMethod = 'POST';
@@ -60,8 +67,7 @@ const GetStarted = ({ history }) => {
         console.log('method:', crudMethod);
         console.log('url:', crudURL);
 
-
-        setValues({...values, userID: authorizedUserID});
+        setValues({...values, userID: authorizedUser._id});
 
         event.preventDefault();
         // validate
@@ -99,6 +105,7 @@ const GetStarted = ({ history }) => {
                         link={contribution.link}
                         contact={contribution.contact}
                         plan={contribution.plan}
+                        editable={true}
                         handleEditClick={() => handleEditClick(contribution)}
                     />
                 )) : null}

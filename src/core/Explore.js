@@ -36,6 +36,7 @@ function Explore({ history }) {
                     description={contributor.description}
                     link={contributor.link}
                     contact={contributor.contact}
+                    editable={false}
                 />
           )) : null}
         </div>

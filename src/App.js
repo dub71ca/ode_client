@@ -1,6 +1,7 @@
   
 import React from 'react';
 import Layout from './core/Layout';
+import { isAuth } from './auth/helpers';
 
 const App = () => {
     return (
@@ -11,7 +12,8 @@ const App = () => {
                 <hr />
                 <p className="lead">
                     The One Dollar Economy is a future where individually we create, currate and deliver the best art, entertainment and content for just a dollar. 
-                    <a href="/get-started"> Get started</a> for just as little dollar per year.
+                    {(isAuth()) ? <a href="/get-started"> Get started </a> : <span> <a href="/signup"> Sign Up</a> or <a href="/signup"> Sign In </a> to get started </span>}
+                        for as little dollar per year.
                 </p>
             </div>
         </Layout>
