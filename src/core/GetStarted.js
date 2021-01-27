@@ -6,6 +6,16 @@ import axios from 'axios';
 
 const GetStarted = ({ history }) => {
 
+    const intitialValues = {
+        editID: "",
+        userID: "",
+        plan: "",
+        title: "",
+        description: "",
+        link: "",
+        contact: "",
+    }
+
     const [values, setValues] = useState({
         editID: "",
         userID: "",
@@ -16,9 +26,11 @@ const GetStarted = ({ history }) => {
         contact: "",
     });
 
+    const [isDelete, setIsDelete] = useState(false);
+
     const token = getCookie('token');
     let authorizedUser = isAuth();
-    
+
     // if(!authorizedUser || authorizedUser === 'undefined') {
     if(!authorizedUser) {
         console.log('user', authorizedUser);
@@ -28,12 +40,15 @@ const GetStarted = ({ history }) => {
         history.push('/signin');
     } 
     
-
     const [data, setData] = useState([]);
+    const [ActiveDisplay, setActiveDisplay] = useState("DISPLAY");
 
     useEffect(() => {
+        console.log('useEffect');
+        console.log('ActiveDisplay', ActiveDisplay);
         loadContributions();
-    }, []);
+        setValues({...values, userID: authorizedUser._id});
+    }, [ActiveDisplay, isDelete]);
 
     const loadContributions = () => {
         axios({
@@ -49,14 +64,10 @@ const GetStarted = ({ history }) => {
         })
     }
 
-    const [ActiveDisplay, setActiveDisplay] = useState("DISPLAY");
-
     const { editID, userID, plan, title, description, link, contact } = values;
     
     const handleSubmit = (event) => {
 
-        console.log('userID', authorizedUser._id);
-        console.log('ActiveDisplay', ActiveDisplay);
         let crudURL = process.env.REACT_APP_API + '/add-contribution';
         let crudMethod = 'POST';
         if(ActiveDisplay === 'EDIT'){
@@ -64,12 +75,8 @@ const GetStarted = ({ history }) => {
             crudMethod = 'PUT';
         }
 
-        console.log('method:', crudMethod);
-        console.log('url:', crudURL);
-
-        setValues({...values, userID: authorizedUser._id});
-
         event.preventDefault();
+
         // validate
         axios({
             method: crudMethod,
@@ -81,15 +88,32 @@ const GetStarted = ({ history }) => {
         })
         .then( response => {
             console.log('ADD_CONTRIBUTOR_SUCCESS', response)
+            setActiveDisplay("DISPLAY");
         })
         .catch(error => {
             console.log('ADD_CONTRIBUTOR_ERROR', error)
         })
-        setActiveDisplay("DISPLAY");
+    }
+
+    const handleDeleteClick=(event) => {
+        setIsDelete(true);
+        console.log('event', event);
+        axios({
+            method: 'PUT',
+            url: process.env.REACT_APP_API + `/delete-contribution/${event._id}`,
+        })
+        .then( response => {
+            console.log('DELETE_CONTRIBUTION_SUCCESS', response)
+            setIsDelete(false);
+        })
+        .catch(error => {
+            console.log('DELETE_CONTRIBUTION_ERROR', error)
+        })
     }
 
     const handleCreateClick = (event) => {
         setActiveDisplay("CREATE");
+        setValues(intitialValues);
     }
 
     const displayContributions = () => (
@@ -107,6 +131,7 @@ const GetStarted = ({ history }) => {
                         plan={contribution.plan}
                         editable={true}
                         handleEditClick={() => handleEditClick(contribution)}
+                        handleDeleteClick={() => handleDeleteClick(contribution)}
                     />
                 )) : null}
             </div>
@@ -128,7 +153,6 @@ const GetStarted = ({ history }) => {
             contact: event.contact,
             link: event.link,
         })
-
     }
 
     const handleChange = (event) => {
@@ -159,7 +183,8 @@ const GetStarted = ({ history }) => {
                     <input name="contact" onChange={handleChange} type="text" value={contact} placeholder="contact" />
                 </div>
                 <div>
-                    <button className="btn btn-primary" onClick={handleSubmit}>Save</button>
+                <button className="btn btn-primary m-2" onClick={handleSubmit}>Save</button>
+                <button className="btn btn-primary m-2" onClick={() => history.goBack()}>Cancel</button>
                 </div>
             </form>
         </div> 

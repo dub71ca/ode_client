@@ -6,8 +6,13 @@ function Contributor(props) {
         <p>{props.description}</p>
         <p>{props.link}</p>
         <p>{props.contact}</p>
-        <div onClick={props.handleEditClick}>
-        {(props.editable) ? <i className="fas fa-edit"></i> : null}
+        <div>
+            <span onClick={props.handleEditClick}>
+            {(props.editable) ? <i className="fas fa-edit m-2"></i> : null}
+            </span>
+            <span onClick={props.handleDeleteClick}>
+            {(props.editable) ? <i className="fas fa-trash-alt m-2"></i> : null}
+            </span>
         </div>
     </div>
 }
