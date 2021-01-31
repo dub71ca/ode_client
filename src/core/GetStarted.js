@@ -174,6 +174,7 @@ const GetStarted = ({ history }) => {
                         <option value="">Select a Plan</option>
                         <option value="peryear">Per Year</option>
                         <option value="permonth">Per Month</option>
+                        <option value="custom">Custom</option>
                     </select>
                 </div>
                 <div className="form-group">

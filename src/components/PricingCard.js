@@ -29,7 +29,7 @@ function PricingCard(props) {
               <p className="description">{props.common.description}</p>
 
          </div>
-        <a className={'bttn bttn-' + props.btnClass} href={props.generic.ctaLinkPrefix + props.pricingData.billingCode}>{props.generic.ctaText}</a>
+        <a className={'bttn bttn-' + props.btnClass} href={props.pricingData.billingCode}>{props.generic.ctaText}</a>
     </div>
   );
 }

@@ -21,7 +21,7 @@ function PricingCardContainer(props) {
     
     return <section>
         <div className="toggle-container">
-          Pay the processing fees so that the contributor gets the whole dollar <input type="checkbox" onChange={togglePromo}></input>
+          Pay the processing fees so One Dollar Economy gets the whole dollar <input type="checkbox" onChange={togglePromo}></input>
         </div>
         <div className="container">
 
