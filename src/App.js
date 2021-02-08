@@ -12,7 +12,7 @@ const App = () => {
                 <hr />
                 <p className="lead">
                     The One Dollar Economy is a future where individually we create, currate and deliver the best art, entertainment and content for just a dollar. 
-                    {(isAuth()) ? <a href="/get-started"> Get started </a> : <span> <a href="/signup"> Sign Up</a> or <a href="/signup"> Sign In </a> to get started </span>}
+                    {(isAuth()) ? <a href="/get-started"> Get started </a> : <span> <a href="/signup"> Sign Up</a> or <a href="/signin"> Sign In </a> to get started </span>}
                         for as little dollar per year.
                 </p>
             </div>

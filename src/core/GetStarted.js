@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Layout from './Layout';
 import Contributor from '../components/Contributor';
+import PayPalSubscription from '../components/PayPalSubcription';
 import { isAuth, getCookie } from '../auth/helpers';
 import axios from 'axios';
 
@@ -184,10 +185,11 @@ const GetStarted = ({ history }) => {
                     <input name="contact" onChange={handleChange} type="text" value={contact} placeholder="contact" />
                 </div>
                 <div>
-                <button className="btn btn-primary m-2" onClick={handleSubmit}>Save</button>
-                <button className="btn btn-primary m-2" onClick={() => history.goBack()}>Cancel</button>
+                    <button className="btn btn-primary m-2" onClick={handleSubmit}>Save</button>
+                    <button className="btn btn-primary m-2" onClick={() => history.goBack()}>Cancel</button>
                 </div>
             </form>
+            <PayPalSubscription />
         </div> 
     )
 
@@ -195,6 +197,7 @@ const GetStarted = ({ history }) => {
         <Layout>
             {(ActiveDisplay === "DISPLAY") ? displayContributions() : createContribution()}
         </Layout>
+        
     )
 }
 

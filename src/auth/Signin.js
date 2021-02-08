@@ -85,7 +85,7 @@ const SignIn = ({ history }) => {
                 <Link to="/auth/password/forgot" className="btn btn-sm btn-outline-danger">
                     Forgot Password
                 </Link>
-                 Not registered? Click <a href="/signup"> Sign Up</a> here to sign up.
+                 Not registered? <a href="/signup"> Sign Up</a> here.
             </div>
         </Layout>
     )
