@@ -36,7 +36,7 @@
     color: #ccc;
   }
 
-  .contributor {
+  .contribution {
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
@@ -45,11 +45,11 @@
     margin: 16px;
     float: left;
   }
-  .contributor h1 {
+  .contribution h1 {
     font-size: 1.1em;
     margin-bottom: 6px;
   }
-  .contributor p {
+  .contribution p {
     font-size: 1.1em;
     margin-bottom: 10px;
     white-space: pre-wrap;
@@ -101,12 +101,12 @@
     color: white;
   }
 
-  .createContributorForm {
+  .createContributionForm {
     padding: 10px 0;
     position: relative;
   }
   
-  .createContributorForm input {
+  .createContributionForm input {
     border: 1px solid rgba(27, 20, 20, 0.4);
     background-color: rgba(252, 252, 252, 0.2);
     width: 250px;
@@ -120,7 +120,7 @@
     font-weight: 300;
   }
 
-  .createContributorForm textarea {
+  .createContributionForm textarea {
     border: 1px solid rgba(27, 20, 20, 0.4);
     background-color: rgba(252, 252, 252, 0.2);
     height: 6em;
@@ -135,7 +135,7 @@
     font-weight: 300;
   }
 
-  .createContributorForm Button {
+  .createionorForm Button {
     appearance: none;
     outline: 0;
     background-color: rgb(168, 159, 159);

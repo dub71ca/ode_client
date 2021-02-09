@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Layout from './Layout';
-import Contributor from '../components/Contributor';
+import Contribution from '../components/Contribution';
 import PayPalSubscription from '../components/PayPalSubcription';
 import { isAuth, getCookie } from '../auth/helpers';
 import axios from 'axios';
@@ -57,11 +57,11 @@ const Create = ({ history }) => {
             url: `${process.env.REACT_APP_API}/my-contributions/${authorizedUser._id}`
         })
         .then(response => {
-            console.log('GET_STARTED_CONTRIBUTORS_SUCCESS', response);
+            console.log('GET_STARTED_CONTRIBUTIONS_SUCCESS', response);
             setData(response.data.data);
         })
         .catch(error => {
-            console.log('GET_STARTED_CONTRIBUTORS_ERROR', error);
+            console.log('GET_STARTED_CONTRIBUTIONS_ERROR', error);
         })
     }
 
@@ -88,11 +88,11 @@ const Create = ({ history }) => {
             data: { editID, userID, plan, title, description, link, contact },
         })
         .then( response => {
-            console.log('ADD_CONTRIBUTOR_SUCCESS', response)
+            console.log('ADD_CONTRIBUTION_SUCCESS', response)
             setActiveDisplay("DISPLAY");
         })
         .catch(error => {
-            console.log('ADD_CONTRIBUTOR_ERROR', error)
+            console.log('ADD_CONTRIBUTION_ERROR', error)
         })
     }
 
@@ -122,7 +122,7 @@ const Create = ({ history }) => {
             <h1 className="text-center">Your Contributions</h1>
             <div>
                 {(data.length > 0) ? data.map(contribution => (
-                    <Contributor 
+                    <Contribution 
                         key={contribution._id}
                         contributionID={contribution._id}
                         title={contribution.title}

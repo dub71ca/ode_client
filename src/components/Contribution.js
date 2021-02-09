@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Contributor(props) {
-    return <div className="contributor">
+function Contribution(props) {
+    return <div className="contribution">
         <h1>{props.title}</h1>
         <p>{props.description}</p>
         <p>{props.link}</p>
@@ -17,4 +17,4 @@ function Contributor(props) {
     </div>
 }
 
-export default Contributor;
+export default Contribution;

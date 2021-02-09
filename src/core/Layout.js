@@ -28,8 +28,8 @@ const Layout = ({ children, match, history }) => {
                 </li>
                 <li className="nav-item">
                     <Link to="/create" className="nav-link" style={isActive("/create")}>
-                        {isAuth().role === 'contributor'?"Create":"Get Started"}
-                        
+                        {console.log('isAuth', isAuth())}
+                        {isAuth() && isAuth().role === 'contributor'?"Create":"Get Started"}
                     </Link>
                 </li>
                 <li className="nav-item">

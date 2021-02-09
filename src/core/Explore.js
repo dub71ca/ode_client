@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Contributor from '../components/Contributor';
+import Contribution from '../components/Contribution';
 import axios from 'axios';
 import Layout from './Layout';
 
@@ -8,20 +8,20 @@ function Explore({ history }) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        loadContributors();
+        loadContributions();
     }, []);
 
-    const loadContributors = () => {
+    const loadContributions = () => {
         axios({
             method: 'GET',
-            url: `${process.env.REACT_APP_API}/contributors`
+            url: `${process.env.REACT_APP_API}/contributions`
         })
         .then(response => {
-            console.log('GET_CONTRIBUTORS_SUCCESS', response);
+            console.log('GET_CONTRIBUTIONS_SUCCESS', response);
             setData(response.data.data);
         })
         .catch(error => {
-            console.log('GET_CONTRIBUTORS_ERROR', error);
+            console.log('GET_CONTRIBUTIONS_ERROR', error);
         })
     }
 
@@ -29,13 +29,13 @@ function Explore({ history }) {
         <Layout>
         <div>
             {console.log('data', data.length)}
-            {(data.length > 0) ? data.map(contributor => (
-                <Contributor 
-                    key={contributor._id}
-                    title={contributor.title}
-                    description={contributor.description}
-                    link={contributor.link}
-                    contact={contributor.contact}
+            {(data.length > 0) ? data.map(contribution => (
+                <Contribution 
+                    key={contribution._id}
+                    title={contribution.title}
+                    description={contribution.description}
+                    link={contribution.link}
+                    contact={contribution.contact}
                     editable={false}
                 />
           )) : null}
