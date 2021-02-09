@@ -27,8 +27,9 @@ const Layout = ({ children, match, history }) => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/get-started" className="nav-link" style={isActive("/get-started")}>
-                        Get Started
+                    <Link to="/create" className="nav-link" style={isActive("/create")}>
+                        {isAuth().role === 'contributor'?"Create":"Get Started"}
+                        
                     </Link>
                 </li>
                 <li className="nav-item">

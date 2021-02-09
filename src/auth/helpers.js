@@ -38,7 +38,7 @@ export const removeLocalStorage = (key) => {
 }
 
 // access user info from localstorage
-export const isAuth = () => {
+export const isAuth =  () => {
     if(window !== 'undefined') {
         const cookieChecked = getCookie('token');
         if(cookieChecked) {

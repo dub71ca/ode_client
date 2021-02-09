@@ -10,7 +10,7 @@ import PrivateRoute from './auth/PrivateRoute';
 import AdminRoute from './auth/AdminRoute';
 import Explore from './core/Explore';
 import About from './core/About';
-import GetStarted from './core/GetStarted';
+import Create from './core/Create';
 import Pricing from './core/Pricing';
 
 const Routes = () => {
@@ -19,7 +19,7 @@ const Routes = () => {
             <Switch>
                 <Route path = "/" exact component={App} />
                 <Route path = "/explore" component={Explore} />
-                <Route path = "/get-started" component={GetStarted} />
+                <Route path = "/create" component={Create} />
                 <Route path = "/about" component={About} />
                 <Route path = "/pricing" component={Pricing} />
                 <Route path = "/signup" component={SignUp} />

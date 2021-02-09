@@ -5,7 +5,7 @@ import PayPalSubscription from '../components/PayPalSubcription';
 import { isAuth, getCookie } from '../auth/helpers';
 import axios from 'axios';
 
-const GetStarted = ({ history }) => {
+const Create = ({ history }) => {
 
     const intitialValues = {
         editID: "",
@@ -201,4 +201,4 @@ const GetStarted = ({ history }) => {
     )
 }
 
-export default GetStarted;
+export default Create;
