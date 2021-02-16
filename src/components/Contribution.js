@@ -6,6 +6,7 @@ function Contribution(props) {
         <p>{props.description}</p>
         <p>{props.link}</p>
         <p>{props.contact}</p>
+        <p>{props.isActive}</p>
         <div>
             <span onClick={props.handleEditClick}>
             {(props.editable) ? <i className="fas fa-edit m-2"></i> : null}

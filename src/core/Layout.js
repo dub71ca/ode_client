@@ -28,7 +28,6 @@ const Layout = ({ children, match, history }) => {
                 </li>
                 <li className="nav-item">
                     <Link to="/create" className="nav-link" style={isActive("/create")}>
-                        {console.log('isAuth', isAuth())}
                         {isAuth() && isAuth().role === 'contributor'?"Create":"Get Started"}
                     </Link>
                 </li>
@@ -65,7 +64,7 @@ const Layout = ({ children, match, history }) => {
                     </li>
                 )}
 
-                {isAuth() && isAuth().role === 'subscriber' && (
+                {isAuth() && (isAuth().role === 'subscriber' || isAuth().role === 'contributor') && (
                     <li className="nav-item">
                         <Link to="/private" className="nav-link" style={isActive("/private")}>
                             <i className="fas fa-cog"></i>

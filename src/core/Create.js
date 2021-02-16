@@ -129,6 +129,7 @@ const Create = ({ history }) => {
                         description={contribution.description}
                         link={contribution.link}
                         contact={contribution.contact}
+                        isActive={contribution.isActive}
                         plan={contribution.plan}
                         editable={true}
                         handleEditClick={() => handleEditClick(contribution)}
