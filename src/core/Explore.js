@@ -25,6 +25,11 @@ function Explore({ history }) {
         })
     }
 
+    const handleSelectClick=(event) => {
+        // open contribution
+        // have contributor paypal buttons available 
+    }
+
     return(
         <Layout>
         <div>
@@ -37,6 +42,7 @@ function Explore({ history }) {
                     link={contribution.link}
                     contact={contribution.contact}
                     editable={false}
+                    handleSelectClick={() => handleSelectClick(contribution)}
                 />
           )) : null}
         </div>
