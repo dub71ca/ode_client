@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Contribution(props) {
-    return <div className="contribution">
+    return <div className="contribution" onClick={props.handleSelectClick}>
         <h1>{props.title}</h1>
         <p>{props.description}</p>
         <p>{props.link}</p>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Contribution from '../components/Contribution';
 import axios from 'axios';
 import Layout from './Layout';
@@ -6,7 +7,7 @@ import Layout from './Layout';
 function Explore({ history }) {
 
     const [data, setData] = useState([]);
-
+    
     useEffect(() => {
         loadContributions();
     }, []);
@@ -28,12 +29,13 @@ function Explore({ history }) {
     const handleSelectClick=(event) => {
         // open contribution
         // have contributor paypal buttons available 
+        history.push("/details/" + event._id);
+
     }
 
     return(
         <Layout>
         <div>
-            {console.log('data', data.length)}
             {(data.length > 0) ? data.map(contribution => (
                 <Contribution 
                     key={contribution._id}
