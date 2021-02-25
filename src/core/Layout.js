@@ -94,7 +94,8 @@ const Layout = ({ children, match, history }) => {
         <Fragment>
             <Header />
             { nav() }
-            <div className="container">
+            {/* <div className="container"> */}
+            <div>
                 {children}
             </div>
             <Footer />

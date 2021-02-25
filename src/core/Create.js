@@ -12,7 +12,8 @@ const Create = ({ history }) => {
         userID: "",
         plan: "",
         title: "",
-        description: "",
+        shortDescription: "",
+        longDescription: "",
         link: "",
         contact: "",
     }
@@ -22,7 +23,8 @@ const Create = ({ history }) => {
         userID: "",
         plan: "",
         title: "",
-        description: "",
+        shortDescription: "",
+        longDescription: "",
         link: "",
         contact: "",
     });
@@ -65,7 +67,7 @@ const Create = ({ history }) => {
         })
     }
 
-    const { editID, userID, plan, title, description, link, contact } = values;
+    const { editID, userID, plan, title, shortDescription, longDescription, link, contact } = values;
     
     const handleSubmit = (event) => {
 
@@ -85,7 +87,7 @@ const Create = ({ history }) => {
             headers: {
                 Authorizatoin: `Bearer ${token}`
             },
-            data: { editID, userID, plan, title, description, link, contact },
+            data: { editID, userID, plan, title, shortDescription, longDescription, link, contact },
         })
         .then( response => {
             console.log('ADD_CONTRIBUTION_SUCCESS', response)
@@ -126,7 +128,8 @@ const Create = ({ history }) => {
                         key={contribution._id}
                         contributionID={contribution._id}
                         title={contribution.title}
-                        description={contribution.description}
+                        shortDescription={contribution.shortDescription}
+                        longDescription={contribution.longDescription}
                         link={contribution.link}
                         contact={contribution.contact}
                         isActive={contribution.isActive}
@@ -150,7 +153,8 @@ const Create = ({ history }) => {
             ...values, 
             editID: event._id,
             title: event.title,
-            description: event.description,
+            shortDescription: event.shortDescription,
+            longDescription: event.longDescription,
             plan: event.plan,
             contact: event.contact,
             link: event.link,
@@ -163,35 +167,67 @@ const Create = ({ history }) => {
 
     const createContribution = () => (
 
-        <div className="col-d6 offset-md-3">
-            <form>
-                <div className="form-group">
-                    <input name="title" onChange={handleChange} type="text" value={title} placeholder="Title" />
-                </div>
-                <div className="form-group">
-                    <textarea name="description" onChange={handleChange} type="text" value={description} placeholder="description" />
+        <div className="row">
+            <div className=" column-entry">
+                <form>
+                    <div className="form-group">
+                        <input name="title" onChange={handleChange} type="text" value={title} placeholder="Title" />
+                    </div>
+                    <div className="form-group">
+                        <textarea name="shortDescription" onChange={handleChange} type="text" value={shortDescription} placeholder="Short Description" />
+                    </div>
+                    <div className="form-group">
+                        <textarea name="longDescription" onChange={handleChange} type="text" value={longDescription} placeholder="Long Description" />
+                    </div>
+                    <div className="form-group">
+                        <select name="plan" id="plan" onChange={handleChange} value={plan}>
+                            <option value="">Select a Plan</option>
+                            <option value="peryear">Per Year</option>
+                            <option value="permonth">Per Month</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <input name="link" onChange={handleChange} type="text" value={link} placeholder="link" />
+                    </div>
+                    <div className="form-group">
+                        <input name="contact" onChange={handleChange} type="text" value={contact} placeholder="contact" />
+                    </div>
+                    <div>
+                        <button className="btn btn-primary m-2" onClick={handleSubmit}>Save</button>
+                        <button className="btn btn-primary m-2" onClick={() => history.goBack()}>Cancel</button>
+                    </div>
+                </form>
+                {/* <PayPalSubscription /> */}
+            </div>
+            {/* down and dirty details will be a component of its own one day. reuse it in explore display detail */}
+            <div className="contribution-preview">
+                <div>
+                    <h1>{title}</h1>
                 </div>
                 <div>
-                    <select name="plan" id="plan" onChange={handleChange} value={plan}>
-                        <option value="">Select a Plan</option>
-                        <option value="peryear">Per Year</option>
-                        <option value="permonth">Per Month</option>
-                        <option value="custom">Custom</option>
-                    </select>
-                </div>
-                <div className="form-group">
-                    <input name="link" onChange={handleChange} type="text" value={link} placeholder="link" />
-                </div>
-                <div className="form-group">
-                    <input name="contact" onChange={handleChange} type="text" value={contact} placeholder="contact" />
+                    <p>{longDescription}</p>
                 </div>
                 <div>
-                    <button className="btn btn-primary m-2" onClick={handleSubmit}>Save</button>
-                    <button className="btn btn-primary m-2" onClick={() => history.goBack()}>Cancel</button>
+                    <p>{link}</p>
                 </div>
-            </form>
-            <PayPalSubscription />
-        </div> 
+                <div>
+                    <p>By {contact}</p>
+                </div>
+            </div> 
+            <div className="contribution-thumbnail">
+            <div>
+                    <h6>{title}</h6>
+                </div>
+                <div>
+                    <p>{shortDescription}</p>
+                </div>
+                <div>
+                    <p>By {contact}</p>
+                </div>
+            </div>
+
+        </div>
     )
 
     return(

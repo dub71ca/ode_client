@@ -8,13 +8,11 @@
   }
   body {
     background: #eee;
-    padding: 0 16px;
   }
   
   header {
     background-color: #007bff;
-    margin: auto -16px;
-    padding: 0 32px;
+    margin: auto;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   }
   
@@ -36,6 +34,34 @@
     color: #ccc;
   }
 
+  /* create contribution screen layout */
+  .column-entry {
+    float: left;
+    padding-top: 20px;
+    padding-left: 60px;
+    width: 20%;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: 100%;
+  }
+
+  .contribution-thumbnail {
+    border-radius: 7px;
+    background: #73AD21;
+    padding-top: 20px;
+    padding-left: 60px;
+    width: 200px;
+    height: 150px;
+  }
+  .contribution-preview {
+    background: #9cbbb8;
+    width: 80%;
+  }
+  
   .contribution {
     background: #fff;
     border-radius: 7px;
@@ -135,19 +161,6 @@
     font-weight: 300;
   }
 
-  .createionorForm Button {
-    appearance: none;
-    outline: 0;
-    background-color: rgb(168, 159, 159);
-    border: 0;
-    margin: 0 0 10px 10%;
-    padding: 10px 15px;
-    color: #1f2222;
-    border-radius: 3px;
-    width: 250px;
-    font-size: 18px;
-  }
-  
   .header-nav {
     padding: 0px;
     margin: 0px;
